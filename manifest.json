@@ -1,0 +1,14 @@
+{
+	"manifest_version": 3,
+	"name": "GitHub Action Raw Log Viewer",
+	"description": "Display GitHub Action Raw log in color, converting the Ansi colors to HTML",
+	"version": "1.0",
+	"content_scripts": [
+		{
+			"js": ["scripts/content.js"],
+			"matches": [
+			"https://pipelines.actions.githubusercontent.com/serviceHosts/*"
+			]
+		}
+	]	
+}
