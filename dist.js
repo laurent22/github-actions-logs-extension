@@ -1,4 +1,5 @@
 const execa = require('execa');
+const { remove } = require('fs-extra');
 
 const distDir = __dirname + '/dist';
 
@@ -32,8 +33,10 @@ const execCommand2 = async (command, options) => {
 }
 
 const main = async() => {
+	const archiveName = 'chrome.zip';
 	process.chdir(distDir);
-	await execCommand2(['7z', 'a', '-tzip', 'chrome.zip', '*']);
+	await remove(archiveName);
+	await execCommand2(['7z', 'a', '-tzip', archiveName, '*']);
 }
 
 main().catch(error => {
