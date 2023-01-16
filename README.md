@@ -16,7 +16,7 @@ This is where the new **GitHub Action Raw Log Viewer** extension for Chrome can 
 
 The extension is fast even for very large logs and it's of course easy to search for text since it simply works with your browser built-in search.
 
-And to install it, follow this link:
+To install it, follow this link:
 
 [![Download GitHub Action Raw Log Viewer extension](https://raw.githubusercontent.com/laurent22/joplin/dev/Assets/WebsiteAssets/images/news/20230116-extension-get-it-now.png)](https://chrome.google.com/webstore/detail/github-action-raw-log-vie/lgejlnoopmcdglhfjblaeldbcfnmjddf
 )
