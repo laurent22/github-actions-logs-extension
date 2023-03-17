@@ -13,7 +13,8 @@
 		{
 			"js": ["scripts/content.js"],
 			"matches": [
-				"https://pipelines.actions.githubusercontent.com/serviceHosts/*"
+				"https://pipelines.actions.githubusercontent.com/serviceHosts/*",
+				"https://cdn.artifacts.gitlab-static.net/*"
 			]
 		}
 	]	

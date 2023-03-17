@@ -20,3 +20,11 @@ To install it, follow this link:
 
 [![Download GitHub Action Raw Log Viewer extension](https://raw.githubusercontent.com/laurent22/joplin/dev/Assets/WebsiteAssets/images/news/20230116-extension-get-it-now.png)](https://chrome.google.com/webstore/detail/github-action-raw-log-vie/lgejlnoopmcdglhfjblaeldbcfnmjddf
 )
+
+## GitLab support
+
+GitLab also offers its logs in raw format so the extension should work with it too. See [manifest.json] for the list of supported URLs.
+
+## License
+
+MIT
