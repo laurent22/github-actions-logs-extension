@@ -23,7 +23,7 @@ To install it, follow this link:
 
 ## GitLab support
 
-GitLab also offers its logs in raw format so the extension should work with it too. See [manifest.json] for the list of supported URLs.
+GitLab also offers its logs in raw format so the extension should work with it too. See [manifest.json](manifest.json) for the list of supported URLs.
 
 ## License
 
