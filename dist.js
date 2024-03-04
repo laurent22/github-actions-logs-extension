@@ -1,5 +1,5 @@
 const execa = require('execa');
-const { remove, copy, readFile, writeFile, mkdirp } = require('fs-extra');
+const { remove, copy, readFile, writeFile, mkdirp, move } = require('fs-extra');
 
 const rootDir = __dirname;
 const baseDistDir = rootDir + '/dist';
@@ -68,23 +68,20 @@ const main = async() => {
 	for (const dist of distributions) {
 		const distDir = baseDistDir + '/' + dist.name;
 		const archiveName = dist.name + '.zip';
-		process.chdir(distDir);
-		await remove(archiveName);
-		await execCommand2(['7z', 'a', '-tzip', archiveName, '*']);
-	}
-
-	for (const dist of distributions) {
-		const distDir = baseDistDir + '/' + dist.name;
-		const archiveName = dist.name + '.zip';
+		const archiveFullPath = baseDistDir + '/' + archiveName;
 		process.chdir(distDir);
 		await remove(archiveName);
 
 		if (dist.postProcess) await dist.postProcess();
 
+		await remove(archiveFullPath);
 		await execCommand2(['7z', 'a', '-tzip', archiveName, '*']);
+		await move(archiveName, archiveFullPath);
 	}
 
 	const sourceDir = baseDistDir + '/source';
+	const sourceArchiveName = 'source.zip';
+	const fullSourcePath = baseDistDir + '/' + sourceArchiveName;
 	await remove(sourceDir);
 	await mkdirp(sourceDir);
 	await copy(rootDir + '/src', sourceDir + '/src');
@@ -97,7 +94,9 @@ const main = async() => {
 	await copy(rootDir + '/icon48.png', sourceDir + '/icon48.png');
 	await copy(rootDir + '/icon512.png', sourceDir + '/icon512.png');
 	process.chdir(sourceDir);
+	await remove(fullSourcePath);
 	await execCommand2(['7z', 'a', '-tzip', 'source.zip', '*']);
+	await move(sourceArchiveName, fullSourcePath);
 }
 
 main().catch(error => {
